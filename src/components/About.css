@@ -1,0 +1,244 @@
+.about-section {
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 20%, #ffecd2 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.about-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="rgba(255,255,255,0.1)"/><stop offset="100%" stop-color="rgba(255,255,255,0)"/></radialGradient></defs><circle cx="100" cy="200" r="80" fill="url(%23a)"/><circle cx="900" cy="300" r="120" fill="url(%23a)"/><circle cx="200" cy="800" r="100" fill="url(%23a)"/><circle cx="800" cy="700" r="90" fill="url(%23a)"/></svg>') no-repeat center center;
+    background-size: cover;
+    opacity: 0.3;
+    z-index: 1;
+}
+
+.about-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.section-icon {
+    margin-right: 1rem;
+    color: #667eea;
+}
+
+.about-image-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.about-image-container {
+    position: relative;
+    max-width: 400px;
+    width: 100%;
+}
+
+.image-wrapper {
+    position: relative;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-strong);
+    background: white;
+    padding: 1rem;
+}
+
+.about-image {
+    width: 100%;
+    height: auto;
+    border-radius: calc(var(--border-radius) - 1rem);
+    transition: var(--transition);
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(102, 126, 234, 0.9);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: var(--transition);
+    border-radius: var(--border-radius);
+}
+
+.image-wrapper:hover .image-overlay {
+    opacity: 1;
+}
+
+.overlay-content {
+    text-align: center;
+    color: white;
+    padding: 2rem;
+}
+
+.overlay-content h4 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.overlay-content p {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin: 0;
+}
+
+.about-content-col {
+    display: flex;
+    align-items: center;
+}
+
+.about-content {
+    width: 100%;
+}
+
+.about-name {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.about-tag {
+    display: inline-block;
+    background: var(--primary-gradient);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-light);
+}
+
+.about-description {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+}
+
+.about-details {
+    margin-bottom: 3rem;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: var(--shadow-light);
+    transition: var(--transition);
+}
+
+.detail-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+.detail-icon {
+    font-size: 1.2rem;
+    color: #667eea;
+    min-width: 20px;
+}
+
+.detail-label {
+    font-weight: 600;
+    color: var(--text-primary);
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 0.2rem;
+}
+
+.detail-value {
+    color: var(--text-secondary);
+    display: block;
+    font-size: 1rem;
+}
+
+.about-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .about-name {
+        font-size: 2.5rem;
+    }
+
+    .about-image-col {
+        margin-bottom: 2rem;
+    }
+
+    .about-actions {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-name {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .about-tag {
+        display: block;
+        text-align: center;
+        width: fit-content;
+        margin: 0 auto 2rem auto;
+    }
+
+    .about-description {
+        text-align: center;
+        font-size: 1rem;
+    }
+
+    .about-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn-gradient,
+    .btn-outline {
+        width: 100%;
+        max-width: 250px;
+        justify-content: center;
+    }
+
+    .detail-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .about-image-container {
+        max-width: 300px;
+    }
+
+    .about-name {
+        font-size: 1.8rem;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+    }
+}

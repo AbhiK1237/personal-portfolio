@@ -1,0 +1,130 @@
+.custom-navbar {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 1rem 0;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.custom-navbar.scrolled {
+    background: rgba(255, 255, 255, 0.98);
+    padding: 0.5rem 0;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-brand-custom {
+    text-decoration: none;
+    color: var(--text-primary) !important;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.brand-content {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.brand-icon {
+    font-size: 1.8rem;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.brand-text {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.custom-toggler {
+    border: none;
+    background: none;
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.custom-toggler:hover {
+    background: rgba(102, 126, 234, 0.1);
+    color: #667eea;
+}
+
+.custom-toggler:focus {
+    box-shadow: none;
+}
+
+.nav-link-custom {
+    color: var(--text-secondary) !important;
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem !important;
+    margin: 0 0.2rem;
+    border-radius: 25px;
+    transition: var(--transition);
+    position: relative;
+    text-decoration: none;
+}
+
+.nav-link-custom:hover {
+    color: #667eea !important;
+    background: rgba(102, 126, 234, 0.1);
+    transform: translateY(-1px);
+}
+
+.nav-link-custom.active {
+    color: white !important;
+    background: var(--primary-gradient);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.nav-link-custom.active:hover {
+    color: white !important;
+    background: var(--primary-gradient);
+}
+
+/* Mobile styles */
+@media (max-width: 991.98px) {
+    .custom-navbar {
+        padding: 0.8rem 0;
+    }
+
+    .navbar-collapse {
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        border-radius: 15px;
+        margin-top: 1rem;
+        padding: 1rem;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-link-custom {
+        margin: 0.2rem 0;
+        text-align: center;
+    }
+
+    .brand-text {
+        font-size: 1.3rem;
+    }
+
+    .brand-icon {
+        font-size: 1.5rem;
+    }
+}
+
+/* Smooth scroll offset for fixed navbar */
+html {
+    scroll-padding-top: 100px;
+}
+
+@media (max-width: 768px) {
+    html {
+        scroll-padding-top: 80px;
+    }
+}

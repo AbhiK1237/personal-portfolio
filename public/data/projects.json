@@ -1,0 +1,92 @@
+[
+    {
+        "id": 1,
+        "name": "React Portfolio Website",
+        "description": "Modern portfolio website built with React, Vite, and Bootstrap. Features animations, glassmorphism effects, and responsive design.",
+        "image": "/images/projects/portfolio.PNG",
+        "category": "web",
+        "technologies": [
+            "React",
+            "Vite",
+            "Bootstrap",
+            "Framer Motion",
+            "CSS3"
+        ],
+        "github": "https://github.com/abhik/react-portfolio",
+        "live": "https://abhik-portfolio.vercel.app"
+    },
+    {
+        "id": 2,
+        "name": "E-commerce Platform",
+        "description": "Full-stack e-commerce solution with user authentication, payment integration, and admin dashboard.",
+        "image": "/images/projects/flipkartmern.png",
+        "category": "web",
+        "technologies": [
+            "React",
+            "Node.js",
+            "MongoDB",
+            "Express",
+            "Stripe"
+        ],
+        "github": "https://github.com/abhik/ecommerce-platform",
+        "live": "https://ecommerce-demo.vercel.app"
+    },
+    {
+        "id": 3,
+        "name": "Weather App",
+        "description": "Real-time weather application with location-based forecasts and interactive maps.",
+        "image": "/images/projects/weatherlyandroid.png",
+        "category": "mobile",
+        "technologies": [
+            "React Native",
+            "API Integration",
+            "Geolocation"
+        ],
+        "github": "https://github.com/abhik/weather-app",
+        "live": "https://weather-app-demo.vercel.app"
+    },
+    {
+        "id": 4,
+        "name": "Task Management API",
+        "description": "RESTful API for task management with authentication, CRUD operations, and database integration.",
+        "image": "/images/projects/issuetrack.PNG",
+        "category": "api",
+        "technologies": [
+            "Node.js",
+            "Express",
+            "MongoDB",
+            "JWT",
+            "Swagger"
+        ],
+        "github": "https://github.com/abhik/task-api"
+    },
+    {
+        "id": 5,
+        "name": "Food Delivery App",
+        "description": "Mobile application for food ordering with real-time tracking and payment integration.",
+        "image": "/images/projects/foodicious.png",
+        "category": "mobile",
+        "technologies": [
+            "Flutter",
+            "Firebase",
+            "Google Maps",
+            "Payment Gateway"
+        ],
+        "github": "https://github.com/abhik/food-delivery-app"
+    },
+    {
+        "id": 6,
+        "name": "Chat Application",
+        "description": "Real-time chat application with private messaging, group chats, and file sharing.",
+        "image": "/images/projects/webchat.PNG",
+        "category": "web",
+        "technologies": [
+            "React",
+            "Socket.io",
+            "Node.js",
+            "MongoDB"
+        ],
+        "github": "https://github.com/abhik/chat-app",
+        "live": "https://chat-app-demo.vercel.app"
+    }
+]
