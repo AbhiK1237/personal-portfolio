@@ -7,16 +7,40 @@ import './Work.css';
 
 const Work = () => {
   const [projects, setProjects] = useState([]);
-  const [visibleProjects, setVisibleProjects] = useState(6);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('/projects.json')
-      .then(response => response.json())
-      .then(data => {
-        // Get only the first 6 projects for the home page
-        setProjects(data.slice(0, 6));
-      })
-      .catch(error => console.error('Error loading projects:', error));
+    const fetchProjects = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch('/data/projects.json');
+        if (!response.ok) {
+          throw new Error('Failed to fetch projects');
+        }
+        const data = await response.json();
+        setProjects(data.slice(0, 6)); // Show only first 6 projects
+        setError(null);
+      } catch (error) {
+        console.error('Error loading projects:', error);
+        setError('Failed to load projects');
+        // Fallback to alternative data source
+        try {
+          const fallbackResponse = await fetch('/projects.json');
+          if (fallbackResponse.ok) {
+            const fallbackData = await fallbackResponse.json();
+            setProjects(fallbackData.slice(0, 6));
+            setError(null);
+          }
+        } catch (fallbackError) {
+          console.error('Fallback also failed:', fallbackError);
+        }
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProjects();
   }, []);
 
   const containerVariants = {
@@ -54,86 +78,138 @@ const Work = () => {
     return colors[category] || '#667eea';
   };
 
+  if (loading) {
+    return (
+      <section id="work" className="work-section section-padding">
+        <Container>
+          <div className="text-center">
+            <div className="loading-spinner mx-auto mb-3"></div>
+            <p className="text-muted">Loading projects...</p>
+          </div>
+        </Container>
+      </section>
+    );
+  }
+
+  if (error && projects.length === 0) {
+    return (
+      <section id="work" className="work-section section-padding">
+        <Container>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <h2 className="section-title">Featured Projects</h2>
+            <div className="empty-state">
+              <p>Unable to load projects at the moment. Please try again later.</p>
+            </div>
+          </motion.div>
+        </Container>
+      </section>
+    );
+  }
+
   return (
-    <section id="work" className="work-section section">
+    <section id="work" className="work-section section-padding">
       <Container>
-        <motion.h2 
-          className="section-title"
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          data-aos="fade-up"
+          viewport={{ once: true }}
+          className="text-center mb-5"
         >
-          <FaLaptopCode className="section-icon" /> 
-          Projects <span className="gradient-text">Made</span>
-        </motion.h2>
+          <h2 className="section-title">Featured Projects</h2>
+          <p className="section-subtitle">
+            Explore some of my recent work and creative solutions
+          </p>
+        </motion.div>
 
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true }}
+          className="projects-grid"
         >
-          <Row className="projects-grid">
+          <Row className="g-4">
             {projects.map((project, index) => (
-              <Col lg={4} md={6} key={index} className="project-col">
+              <Col lg={4} md={6} key={project.id || index} className="project-col">
                 <motion.div
                   variants={itemVariants}
-                  className="project-wrapper"
-                  data-aos="fade-up"
-                  data-aos-delay={index * 100}
+                  className="project-wrapper h-100"
                 >
-                  <Card className="project-card">
+                  <Card className="project-card h-100">
                     <div className="project-image-container">
-                      <img
-                        src={getImagePath(project.image)}
-                        alt={project.name}
+                      <Card.Img
+                        variant="top"
+                        src={project.image || `/images/projects/${project.name?.toLowerCase().replace(/\s+/g, '-')}.jpg`}
+                        alt={project.name || 'Project'}
                         className="project-image"
-                        onError={(e) => {
-                          e.target.src = '/assets/images/projects/portfolio.PNG';
-                        }}
+                        loading="lazy"
                       />
                       <div className="project-overlay">
                         <div className="project-actions">
-                          {project.links.view && (
-                            <Button
-                              href={project.links.view}
+                          {(project.github || project.links?.code) && (
+                            <motion.a
+                              href={project.github || project.links?.code}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="btn-project-action"
-                              variant="light"
-                            >
-                              <FaEye /> View
-                            </Button>
-                          )}
-                          {project.links.code && (
-                            <Button
-                              href={project.links.code}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="btn-project-action"
-                              variant="outline-light"
+                              className="btn-project-action btn btn-outline-light"
+                              whileHover={{ scale: 1.05 }}
+                              whileTap={{ scale: 0.95 }}
                             >
                               <FaCode /> Code
-                            </Button>
+                            </motion.a>
+                          )}
+                          {(project.live || project.links?.view) && (
+                            <motion.a
+                              href={project.live || project.links?.view}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="btn-project-action btn btn-light"
+                              whileHover={{ scale: 1.05 }}
+                              whileTap={{ scale: 0.95 }}
+                            >
+                              <FaEye /> Demo
+                            </motion.a>
                           )}
                         </div>
                       </div>
-                      <div 
-                        className="category-badge"
-                        style={{ backgroundColor: getCategoryColor(project.category) }}
-                      >
-                        {project.category}
-                      </div>
+                      {project.category && (
+                        <div className="category-badge">
+                          {project.category}
+                        </div>
+                      )}
                     </div>
-
+                    
                     <Card.Body className="project-content">
-                      <h4 className="project-title">{project.name}</h4>
-                      <p className="project-description">{project.desc}</p>
-                    </Card.Body>
+                      <Card.Title className="project-title">
+                        {project.name || 'Untitled Project'}
+                      </Card.Title>
+                      
+                      <Card.Text className="project-description">
+                        {project.description || project.desc || 'No description available.'}
+                      </Card.Text>
 
-                    <div className="project-glow"></div>
+                      {project.technologies && (
+                        <div className="tech-stack mb-3">
+                          {project.technologies.slice(0, 3).map((tech, techIndex) => (
+                            <span key={techIndex} className="tech-tag">
+                              {tech}
+                            </span>
+                          ))}
+                          {project.technologies.length > 3 && (
+                            <span className="tech-tag">
+                              +{project.technologies.length - 3} more
+                            </span>
+                          )}
+                        </div>
+                      )}
+                    </Card.Body>
                   </Card>
                 </motion.div>
               </Col>
@@ -142,15 +218,16 @@ const Work = () => {
         </motion.div>
 
         <motion.div
-          className="view-all-container"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          data-aos="fade-up"
+          viewport={{ once: true }}
+          className="view-all-container mt-5"
         >
-          <Link to="/projects" className="btn-gradient view-all-btn">
-            View All Projects <FaArrowRight className="ms-2" />
+          <Link to="/projects" className="btn btn-gradient view-all-btn">
+            <FaLaptopCode className="me-2" />
+            View All Projects
+            <FaArrowRight className="ms-2" />
           </Link>
         </motion.div>
       </Container>
