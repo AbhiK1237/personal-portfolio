@@ -36,19 +36,19 @@ const Contact = () => {
     {
       icon: <FaEnvelope />,
       title: "Email",
-      value: "abhikdeveloper@gmail.com",
-      link: "mailto:abhikdeveloper@gmail.com"
+      value: "kaleabhijith@gmail.com",
+      link: "mailto:kaleabhijith@gmail.com"
     },
     {
       icon: <FaPhone />,
       title: "Phone",
-      value: "+91 123-456-7890",
-      link: "tel:+911234567890"
+      value: "+91 7989710463",
+      link: "tel:+917989710463"
     },
     {
       icon: <FaMapMarkerAlt />,
       title: "Location",
-      value: "Mumbai, Maharashtra, India",
+      value: "Hyderabad, Telangana, India",
       link: null
     }
   ];
@@ -57,25 +57,25 @@ const Contact = () => {
     {
       icon: <FaLinkedin />,
       name: "LinkedIn",
-      url: "https://linkedin.com/in/abhik",
+      url: "https://www.linkedin.com/in/abhijith-kale-7b16a1177/",
       color: "#0077b5"
     },
     {
       icon: <FaGithub />,
       name: "GitHub",
-      url: "https://github.com/abhik",
+      url: "https://github.com/AbhiK1237",
       color: "#333"
     },
     {
       icon: <FaTwitter />,
       name: "Twitter",
-      url: "https://twitter.com/abhik",
+      url: "https://x.com/AbhiK26563344",
       color: "#1da1f2"
     },
     {
       icon: <FaInstagram />,
       name: "Instagram",
-      url: "https://instagram.com/abhik",
+      url: "https://instagram.com/abhijith_kale",
       color: "#e4405f"
     }
   ];
