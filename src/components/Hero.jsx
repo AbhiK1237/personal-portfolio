@@ -9,7 +9,7 @@ import './Hero.css';
 const Hero = () => {
   const [particlesInit, setParticlesInit] = useState(false);
   const [typedText, setTypedText] = useState('');
-  const roles = ['Full Stack Developer', 'React Developer', 'Node.js Developer', 'Mobile App Developer'];
+  const roles = ['Full Stack Developer', 'Node.js Developer', 'Gen AI Developer'];
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
 
@@ -156,7 +156,7 @@ const Hero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.6 }}
               >
-                I'm <span className="gradient-text">Jigar Sable</span>
+                I'm <span className="gradient-text">Abhijith Kale</span>
               </motion.h1>
               
               <motion.p
