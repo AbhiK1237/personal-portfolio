@@ -51,7 +51,7 @@ const About = () => {
               >
                 <div className="image-wrapper">
                   <img
-                    src="/assets/images/profile2.jpg"
+                    src="/assets/images/profile2.jpeg"
                     alt="Jigar Sable"
                     className="about-image"
                   />
@@ -89,8 +89,8 @@ const About = () => {
                   className="about-description"
                   variants={itemVariants}
                 >
-                  I am a Full-Stack developer based in Pune, India. I am an Information Technology 
-                  undergraduate from SPPU. I am very passionate about improving my coding skills & 
+                  I am a Full-Stack developer based in Hyderabad, India. I am an Information Technology 
+                  undergraduate from GRIET. I am very passionate about improving my coding skills & 
                   developing applications & websites. I build WebApps and Websites using MERN Stack. 
                   Working for myself to improve my skills. Love to build Full-Stack clones.
                 </motion.p>
@@ -105,7 +105,7 @@ const About = () => {
                         <FaEnvelope className="detail-icon" />
                         <div>
                           <span className="detail-label">Email:</span>
-                          <span className="detail-value">jigarsable21@gmail.com</span>
+                          <span className="detail-value">kaleabhijith@gmail.com</span>
                         </div>
                       </div>
                     </Col>
@@ -114,7 +114,7 @@ const About = () => {
                         <FaMapMarkerAlt className="detail-icon" />
                         <div>
                           <span className="detail-label">Location:</span>
-                          <span className="detail-value">Pune, India - 412206</span>
+                          <span className="detail-value">Hyderabad, India - 500072</span>
                         </div>
                       </div>
                     </Col>
@@ -126,7 +126,7 @@ const About = () => {
                   variants={itemVariants}
                 >
                   <Button
-                    href="https://drive.google.com/file/d/1rZiXl562q7aVyk1kJ2nO85YBAq8ixTiw/view"
+                    href="https://docs.google.com/document/d/1Xwwf-8RmxZ-u1fZxFwyRUPbhdDm-fp2kKNnw9dyIB7w/edit?usp=sharing"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn-gradient me-3"
