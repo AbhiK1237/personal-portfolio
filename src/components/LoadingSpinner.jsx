@@ -45,7 +45,7 @@ const LoadingSpinner = () => {
           }}
         >
           <div className="logo-circle">
-            <span>JS</span>
+            <span>AK</span>
           </div>
         </motion.div>
         
@@ -55,7 +55,7 @@ const LoadingSpinner = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.6 }}
         >
-          Jigar Sable
+          Abhijith Kale
         </motion.h2>
         
         <motion.p
