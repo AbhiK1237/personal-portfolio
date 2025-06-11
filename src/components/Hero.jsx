@@ -9,7 +9,7 @@ import './Hero.css';
 const Hero = () => {
   const [particlesInit, setParticlesInit] = useState(false);
   const [typedText, setTypedText] = useState('');
-  const roles = ['Full Stack Developer', 'Node.js Developer', 'Gen AI Developer'];
+  const roles = ['Full Stack Development', 'Gen AI Development', ]
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
 
