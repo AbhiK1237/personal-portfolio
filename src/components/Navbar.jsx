@@ -76,7 +76,7 @@ const Navbar = () => {
               whileTap={{ scale: 0.95 }}
             >
               <FaCode className="brand-icon" />
-              <span className="brand-text">Jigar</span>
+              <span className="brand-text">Abhijith</span>
             </motion.div>
           </BootstrapNavbar.Brand>
 
